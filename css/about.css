@@ -1,0 +1,53 @@
+.about-inner {
+    display: flex;
+    justify-content: center
+}
+
+.about-card {
+    padding: 32px
+}
+
+.about-grid {
+    display: flex;
+    gap: 24px;
+    align-items: center
+}
+
+.about-photo {
+    flex: 1
+}
+
+.about-photo img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.06)
+}
+
+.about-text {
+    flex: 2
+}
+
+.about-text h2 {
+    font-family: 'Poppins'
+}
+
+.about-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px
+}
+
+
+@media (max-width:900px) {
+    .about-grid {
+        flex-direction: column;
+        text-align: center
+    }
+
+    .about-photo img {
+        width: 200px;
+        height: 200px
+    }
+}

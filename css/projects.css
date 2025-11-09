@@ -1,0 +1,192 @@
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+}
+
+.project-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    /* Indicate it's clickable */
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 0;
+    /* Remove padding here, glass-panel is applied to the card */
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(123, 44, 191, 0.2);
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Image Optimization: Set a consistent aspect ratio */
+.project-card .thumb {
+    width: 100%;
+    /* 16:9 Aspect Ratio */
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.project-card .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .thumb img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    /* Subtle background for the info area */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.project-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    color: var(--accent1);
+}
+
+.project-tags {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0 0 12px 0;
+}
+
+/* Style the details button to be easily visible */
+.view-details-btn {
+    margin-top: auto;
+    /* Push button to the bottom */
+    font-size: 0.9rem;
+    padding: 8px 14px;
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.open {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, var(--bg1) 10%, var(--bg2) 90%);
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 650px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    position: relative;
+    border: 2px solid var(--glass-border);
+}
+
+.modal-overlay.open .modal-content {
+    transform: scale(1);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+    color: var(--accent1);
+}
+
+.modal-content h2 {
+    color: var(--accent1);
+    font-size: 2rem;
+    margin-top: 0;
+    border-bottom: 2px solid var(--glass-border);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-tags {
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+#modal-description {
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.modal-actions .btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+}
+
+.modal-actions .icon {
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Remove unused project-overlay styles */
+.project-overlay {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        padding: 25px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+}

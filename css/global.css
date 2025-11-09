@@ -1,0 +1,725 @@
+:root {
+    --bg1: #0f0c29;
+    /* option 2 */
+    --bg2: #302b63;
+    --accent1: #9D4EDD;
+    --accent2: #7B2CBF;
+    --accent3: #5A189A;
+    --glass: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --text: #EDEDED;
+    --muted: #B8B8B8;
+    --max-width: 1200px;
+    --header-height: 72px;
+    /* used to offset fixed header */
+    --linkedin-color: #0A66C2;
+    --github-color: #181717;
+    --youtube-color: #FF0000;
+    --facebook-color: #1877F2;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: 'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    /*background: linear-gradient(145deg, var(--bg1), var(--bg2));*/
+    background: #0f0c29;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    margin: 0
+}
+
+p {
+    line-height: 1.6
+}
+
+a {
+    color: var(--accent1);
+    text-decoration: none;
+    font-weight: 500
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+
+.section {
+    padding: 100px 0;
+    /* Consistent vertical spacing */
+    background-color: transparent;
+    /* CRUCIAL: Ensures gradient from body shows through */
+    position: relative;
+    z-index: 0;
+    /* Do not force a large min-height on all sections; let content dictate height */
+    min-height: auto;
+    /* Add offset for fixed header */
+    scroll-margin-top: var(--header-height);
+    scroll-behavior: smooth;
+}
+
+/* Make each section feel visually separate: subtle separators, alternating overlays */
+.section+.section {
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    margin-top: 0;
+    /* spacing is handled by padding */
+}
+
+/* Alternating overlay styles to give each section its own tint */
+.section:nth-of-type(odd)::before {
+    background: linear-gradient(180deg, rgba(15, 12, 41, 0.06), rgba(48, 43, 99, 0.04));
+}
+
+.section:nth-of-type(even)::before {
+    background: linear-gradient(180deg, rgba(157, 78, 221, 0.03), rgba(90, 24, 154, 0.02));
+}
+
+/* Slight inner panel to elevate content when appropriate */
+.section .glass-panel,
+.section .glass-card {
+    position: relative;
+    z-index: 1;
+    /* Add a slightly stronger backdrop and border for separation */
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Ensure images and wide elements do not overflow */
+img,
+iframe,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+/* Section overlay to improve contrast without hiding body gradient */
+.section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 12, 41, 0.12), rgba(48, 43, 99, 0.06));
+    pointer-events: none;
+    z-index: 0;
+    /* sits above the body background, but below section content */
+    border-radius: inherit;
+}
+
+/* Ensure section content sits above the overlay pseudo-element */
+.section>.container {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+/* Glass card base */
+.glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 24px;
+}
+
+/* Gradient Border Utility (for images and other elements) */
+.gradient-border-ring {
+    /* The element that holds the content (e.g., img) should be inside this */
+    position: relative;
+    display: inline-block;
+    padding: 3px;
+    /* Controls border thickness */
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--accent1), var(--accent2), var(--accent1));
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.5);
+}
+
+.gradient-border-ring::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: 3px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--bg1), var(--bg2));
+    z-index: 1;
+}
+
+.gradient-border-ring img {
+    position: relative;
+    z-index: 2;
+    display: block;
+}
+
+/* === Glass Panel Styling (Used for all cards) === */
+.glass-panel {
+    padding: 20px 20px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(123, 44, 191, 0.12);
+    /* Added hover scale for interactivity */
+    transform: scale(1);
+}
+
+.btn.primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(123, 44, 191, 0.4);
+}
+
+.btn.ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    /* Added hover effect */
+}
+
+.btn.ghost:hover {
+    border-color: var(--accent1);
+    color: var(--accent1);
+    background: rgba(157, 78, 221, 0.05);
+}
+
+.btn.small {
+    padding: 8px 10px;
+    font-size: 0.9rem
+}
+
+/* Section Header Component (New) */
+.section-header {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    opacity: 0;
+    /* Animated with anime.js */
+    transform: translateY(10px);
+    /* Animated with anime.js */
+}
+
+/* Glowing Border effect */
+.section-header:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    /* Animated width for effect */
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    box-shadow: 0 0 10px var(--accent1);
+    transition: width 0.6s ease;
+}
+
+/* Section Number (The bold, primary identifier) */
+.section-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent1);
+    font-family: 'Poppins';
+    opacity: 0.7;
+    text-shadow: 0 0 10px rgba(157, 78, 221, 0.3);
+}
+
+/* Title and Subtitle grouping */
+.section-title-wrap {
+    flex-grow: 1;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.section-icon {
+    width: 32px;
+    height: 32px;
+    stroke: var(--accent1);
+    fill: none;
+    stroke-width: 2.5;
+    opacity: 0.8;
+    transition: transform 0.3s;
+}
+
+
+/* Scroll down */
+/* Scroll down */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--muted);
+    border-radius: 50px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s
+}
+
+.scroll-down:hover {
+    opacity: 1
+}
+
+.scroll-down:before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    background-color: var(--accent1);
+    border-radius: 100%;
+    animation: scroll 1.5s infinite
+}
+
+/* Footer */
+.footer {
+    padding: 24px 0;
+    text-align: center;
+    color: var(--muted)
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px
+}
+
+
+/* Particles canvas full-screen */
+#tsparticles {
+    /* Changed from #particles-js to #tsparticles, as per your index.html */
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    /* ensure particles stay behind all content */
+    pointer-events: none;
+    /* don't block clicks */
+}
+
+/* Background overlay element (optional extra layer for subtle noise/gradient) */
+#background-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    /* behind particles and content */
+    pointer-events: none;
+    background: radial-gradient(circle at 10% 20%, rgba(157, 78, 221, 0.03), transparent 10%),
+        radial-gradient(circle at 90% 80%, rgba(90, 24, 154, 0.03), transparent 12%);
+}
+
+
+@media (max-width:768px) {
+
+    .footer-inner {
+        flex-direction: column
+    }
+}
+
+
+
+@keyframes scroll {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0
+    }
+
+    40% {
+        opacity: 1
+    }
+
+    80% {
+        transform: translate(0, 20px);
+        opacity: 0
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+
+/* Media Queries */
+@media (max-width: 600px) {
+    .section {
+        padding: 60px 0;
+        min-height: auto;
+        /* don't enforce large min-heights on small screens */
+    }
+
+    .section-number {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .section-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Mobile fixes for Skills and Projects sections */
+    #skills .section-header,
+    #projects .section-header {
+        margin-bottom: -8px;
+        /* Slightly less negative margin on mobile */
+    }
+
+    #skills .skills-grid,
+    #projects .projects-grid {
+        position: relative;
+        z-index: 2;
+        /* Increase z-index to ensure content stays above divider */
+        margin-top: 0;
+        gap: 12px;
+        padding-bottom: 40px;
+        /* Add padding to prevent overlap with divider */
+    }
+
+    #skills,
+    #projects {
+        position: relative;
+        /* Ensure proper stacking context */
+    }
+
+    .section-divider {
+        margin-top: -40px;
+        position: relative;
+        z-index: 1;
+        /* Position between section content */
+    }
+}
+
+/* Per-section tint overrides for clearer separation */
+#projects::before {
+    background: linear-gradient(180deg, rgba(48, 43, 99, 0.06), rgba(45, 34, 90, 0.03));
+}
+
+#skills::before {
+    background: linear-gradient(180deg, rgba(20, 28, 60, 0.06), rgba(30, 34, 70, 0.03));
+}
+
+#journey::before {
+    background: linear-gradient(180deg, rgba(157, 78, 221, 0.04), rgba(90, 24, 154, 0.02));
+}
+
+#contact::before {
+    background: linear-gradient(180deg, rgba(15, 12, 41, 0.03), rgba(48, 43, 99, 0.02));
+}
+
+/* Tighten vertical spacing between header and grid for skills & projects */
+#skills .section-header,
+#projects .section-header {
+    margin-bottom: -16px;
+    /* increase negative margin to pull content up more */
+    padding-bottom: 0;
+}
+
+#skills .skills-grid {
+    margin-top: 0;
+    /* minimal spacing */
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+#projects .projects-grid {
+    margin-top: 0;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Decorative SVG divider between sections */
+.section-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-top: -2px;
+    position: relative;
+    z-index: 1;
+    /* Place divider between section content layers */
+    /* slightly overlap to hide hairline */
+}
+
+.section-divider svg {
+    display: block;
+    width: 100%;
+    height: 56px;
+    pointer-events: none;
+    /* Prevent any interaction with the divider */
+}
+
+.section-divider .shape-fill {
+    /* Unified divider color and increased opacity for better visibility */
+    fill: rgba(255, 255, 255, 0.06);
+}
+
+/* Social Links Styling */
+.social-links-container {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.social-link-item a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.social-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon-wrapper svg {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+.social-link-name {
+    font-size: 0.9rem;
+}
+
+/* Social links hover effects */
+.social-link-item a:hover {
+    transform: translateY(-2px);
+    border-color: currentColor;
+}
+
+/* LinkedIn */
+.social-link-item:nth-child(1) a:hover {
+    color: var(--linkedin-color);
+    background: rgba(10, 102, 194, 0.1);
+}
+
+/* GitHub */
+.social-link-item:nth-child(2) a:hover {
+    color: var(--github-color);
+    background: rgba(24, 23, 23, 0.1);
+}
+
+/* YouTube */
+.social-link-item:nth-child(3) a:hover {
+    color: var(--youtube-color);
+    background: rgba(255, 0, 0, 0.1);
+}
+
+/* Facebook */
+.social-link-item:nth-child(4) a:hover {
+    color: var(--facebook-color);
+    background: rgba(24, 119, 242, 0.1);
+}
+
+
+/* ===== SOCIAL LINKS ICON-TO-NAME STYLING ===== */
+.social-links-container {
+    display: flex;
+    gap: 12px;
+    /* Optional: Center links if they are the primary focus of the container */
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+    /* Default margin for separation */
+}
+
+.social-link-item {
+    line-height: 1;
+    /* Fixes vertical alignment issues */
+}
+
+.social-link-item a {
+    display: flex;
+    align-items: center;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px;
+    /* Touch target size */
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Transition applied to background, color, and padding/transform */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+}
+
+/* Base icon state */
+.social-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    /* Fixed width for the icon */
+    height: 20px;
+    /* Fixed height for the icon */
+    margin-right: 0;
+    /* No margin initially */
+    transition: margin-right 0.3s;
+}
+
+.social-link-name {
+    /* Hide the name by default */
+    max-width: 0;
+    opacity: 0;
+    white-space: nowrap;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: max-width 0.3s, opacity 0.3s;
+}
+
+/* Hover State: Expand the link, reveal the name */
+.social-link-item a:hover {
+    color: var(--text);
+    transform: translateY(-2px);
+    /* Subtle lift */
+    box-shadow: 0 4px 15px rgba(123, 44, 191, 0.3);
+}
+
+.social-link-item a:hover .social-icon-wrapper {
+    margin-right: 8px;
+    /* Creates space between icon and text */
+}
+
+.social-link-item a:hover .social-link-name {
+    max-width: 150px;
+    /* Allows the text to become visible */
+    opacity: 1;
+}
+
+/* Ensure the SVG icon is colored correctly */
+.social-link-item a svg {
+    fill: currentColor;
+    /* Inherits color from the anchor tag */
+    width: 20px;
+    height: 20px;
+}
+
+/* LinkedIn Hover Style */
+.social-link[data-platform="linkedin"]:hover {
+    background: var(--linkedin-color);
+    border-color: var(--linkedin-color);
+}
+
+/* GitHub Hover Style */
+.social-link[data-platform="github"]:hover {
+    background: var(--github-color);
+    border-color: var(--github-color);
+    color: #fff;
+    /* Ensure text remains white for contrast */
+}
+
+/* YouTube Hover Style */
+.social-link[data-platform="youtube"]:hover {
+    background: var(--youtube-color);
+    border-color: var(--youtube-color);
+}
+
+/* Facebook Hover Style */
+.social-link[data-platform="Facebook"]:hover {
+    background: var(--facebook-color);
+    border-color: var(--facebook-color);
+}
+
+/* Mobile Fallback: Stacked or simpler display */
+@media (max-width: 600px) {
+    .social-link-item a {
+        /* On small screens, keep them as icons only for better packing */
+        padding: 10px;
+    }
+
+    .social-link-item a .social-link-name {
+        display: none;
+    }
+
+    .social-link-item a .social-icon-wrapper {
+        margin-right: 0;
+    }
+
+    .social-link-item a:hover {
+        /* Simple hover for mobile */
+        transform: scale(1.1);
+    }
+}

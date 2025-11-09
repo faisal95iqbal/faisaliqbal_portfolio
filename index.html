@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Faisal Iqbal — Full Stack Developer</title>
+    <meta name="description"
+        content="Faisal Iqbal - Full Stack Developer (Django + React). Portfolio website built with HTML, CSS and JS.">
+    <meta property="og:title" content="Faisal Iqbal — Full Stack Developer">
+    <meta property="og:description" content="Django + React developer. Portfolio of projects and contact info.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Outfit:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+
+<body>
+
+    <div id="background-overlay"></div>
+    <div id="tsparticles"></div>
+
+    <header class="header">
+        <div class="container">
+            <nav class="nav" id="navMenu">
+                <ul>
+                    <li><a href="#hero" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="hero" class="hero">
+            <div class="container hero-content">
+                <div class="hero-card glass-panel" data-aos="fade-up">
+                    <!-- Row 1: Image Left, Info Right (Desktop Grid) -->
+                    <div class="hero-main-row">
+                        <!-- Image -->
+                        <div class="hero-profile-image">
+                            <!-- Placeholder Image: Replace with your actual profile image URL -->
+                            <img src="/media/profile.jpg?text=FI" alt="Profile Image" loading="lazy"
+                                onerror="this.onerror=null;this.src='https://placehold.co/150x150/7B2CBF/FFFFFF?text=FI';" />
+                        </div>
+                        <!-- Info Text -->
+                        <div class="hero-info-text">
+                            <p class="greeting">Hello, I'm</p>
+                            <h1 class="name">Faisal Iqbal</h1>
+                            <p class="typed"><span id="typed"></span></p>
+                            <p class="tagline">I build clean, efficient, and scalable web applications.</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: CTA Buttons (Full Width) -->
+                    <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
+                        <a href="#projects" class="btn primary">View Projects</a>
+                        <a href="#contact" class="btn ghost">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="about" class="section about">
+            <div class="container about-inner">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-number">01</span>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title">About Me</h2>
+                        <p class="section-subtitle">Who I am and what I do.</p>
+                    </div>
+                    <svg class="section-icon">
+                        <use xlink:href="#lucide-user" />
+                    </svg>
+                </div>
+                <div class="glass-card about-card" data-sr>
+                    <div class="about-grid">
+                        <div class="hero-profile-image" data-aos="fade-right">
+                            <!-- Placeholder Image: Replace with your actual profile image URL -->
+                            <img src="/media/profile.jpg?text=FI" alt="Profile Image" loading="lazy"
+                                onerror="this.onerror=null;this.src='https://placehold.co/150x150/7B2CBF/FFFFFF?text=FI';" />
+                        </div>
+                        <div class="about-text" data-aos="fade-left">
+                            <p>I started my career in real estate, transitioned to a managerial role in agriculture, and
+                                now I
+                                am a full stack developer building web apps using Django, React and modern tools. I also
+                                create
+                                content to share my journey and learning.</p>
+                            <div class="about-actions">
+                                <a class="btn primary" href="#projects">See Projects</a>
+                                <a class="btn ghost" href="#contact">Download CV</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="section-divider" aria-hidden="true">
+            <svg viewBox="0 0 1200 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,0 C150,40 350,40 600,28 C850,16 1050,40 1200,24 L1200,56 L0,56 Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <section id="skills" class="section skills">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-number">02</span>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title">Skills</h2>
+                        <p class="section-subtitle">Proficiencies in my tech stack.</p>
+                    </div>
+                    <svg class="section-icon">
+                        <use xlink:href="#lucide-zap" />
+                    </svg>
+                </div>
+                <div class="skills-grid" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-card glass-panel" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Technical Skills (Hard Skills)</h3>
+                        <ul class="skill-list">
+                            <li>Python (Django, DRF)</li>
+                            <li>JavaScript (React, Redux, Next.js)</li>
+                            <li>TypeScript</li>
+                            <li>PostgreSQL, SQLite, MySQL</li>
+                            <li>HTML5 & CSS3 (Tailwind, SCSS)</li>
+                            <li>Docker & Docker Compose</li>
+                            <li>AWS (EC2, S3, RDS)</li>
+                            <li>Git / GitHub / GitLab</li>
+                            <li>RESTful APIs / GraphQL</li>
+                            <li>CI/CD (GitHub Actions, Jenkins)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card glass-panel" data-aos="fade-up" data-aos-delay="300">
+                        <h3>Soft Skills (Interpersonal)</h3>
+                        <ul class="skill-list">
+                            <li>Problem Solving</li>
+                            <li>Agile Methodologies (Scrum)</li>
+                            <li>Effective Communication</li>
+                            <li>Team Leadership & Mentoring</li>
+                            <li>Time Management</li>
+                            <li>Adaptability & Learning</li>
+                            <li>Critical Thinking</li>
+                            <li>Attention to Detail</li>
+                            <li>Client Interaction</li>
+                            <li>Documentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="section-divider" aria-hidden="true">
+            <svg viewBox="0 0 1200 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,0 C150,40 350,40 600,28 C850,16 1050,40 1200,24 L1200,56 L0,56 Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <section id="projects" class="section">
+            <div class="container ">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-number">03</span>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title">Projects</h2>
+                        <p class="section-subtitle">A selection of recent work.</p>
+                    </div>
+                    <svg class="section-icon">
+                        <use xlink:href="#lucide-folder-open" />
+                    </svg>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card glass-panel" data-aos="fade-up" data-aos-delay="200" data-project='{
+                                    "title": "E-Commerce API Platform",
+                                    "tags": "Django Rest Framework, PostgreSQL, Stripe",
+                                    "description": "A robust, highly secure e-commerce backend built with Django Rest Framework. Features include comprehensive user management, product catalog API, secure checkout endpoints, and integration with Stripe for payment processing. Focused on performance and scalability.",
+                                    "liveLink": "https://demo.ecommerce.com",
+                                    "githubLink": "https://github.com/faisaliqbal/ecommerce-api"
+                                }' onclick="showProjectModal(this)">
+                        <div class="project-content">
+                            <div class="thumb">
+                                <img src="https://placehold.co/600x338/302b63/EDEDED?text=E-Commerce+API"
+                                    alt="E-Commerce API Platform" loading="lazy"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/600x338/302b63/EDEDED?text=E-Commerce+API';">
+                            </div>
+                            <div class="project-info">
+                                <h3>E-Commerce API Platform</h3>
+                                <p class="project-tags">Django Rest Framework, PostgreSQL, Stripe</p>
+                                <button class="btn primary small view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass-panel" data-aos="fade-up" data-aos-delay="300" data-project='{
+                                    "title": "Real-Time Chat App",
+                                    "tags": "React, WebSockets, Django Channels",
+                                    "description": "A modern, responsive real-time chat application. Utilizes Django Channels for WebSocket handling and React on the frontend for dynamic UI updates. Supports private and group chats, and features user presence indicators for a seamless experience.",
+                                    "liveLink": "https://demo.chatapp.com",
+                                    "githubLink": "https://github.com/faisaliqbal/realtime-chat-app"
+                                }' onclick="showProjectModal(this)">
+                        <div class="project-content">
+                            <div class="thumb">
+                                <img src="https://placehold.co/600x338/302b63/EDEDED?text=Chat+App+Image"
+                                    alt="Real-Time Chat App" loading="lazy"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/600x338/302b63/EDEDED?text=Chat+App+Image';">
+                            </div>
+                            <div class="project-info">
+                                <h3>Real-Time Chat App</h3>
+                                <p class="project-tags">React, WebSockets, Django Channels</p>
+                                <button class="btn primary small view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass-panel" data-aos="fade-up" data-aos-delay="400" data-project='{
+                                    "title": "Task Management Frontend",
+                                    "tags": "React, Redux, Tailwind CSS",
+                                    "description": "An intuitive, single-page task management dashboard built entirely with React and Redux for state management. Styled using Tailwind CSS for a utility-first approach. Features include drag-and-drop task reordering and detailed status views.",
+                                    "liveLink": "https://demo.taskboard.com",
+                                    "githubLink": "https://github.com/faisaliqbal/task-management-ui"
+                                }' onclick="showProjectModal(this)">
+                        <div class="project-content">
+                            <div class="thumb">
+                                <img src="https://placehold.co/600x338/302b63/EDEDED?text=Task+Board+UI"
+                                    alt="Task Management Frontend" loading="lazy"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/600x338/302b63/EDEDED?text=Task+Board+UI';">
+                            </div>
+                            <div class="project-info">
+                                <h3>Task Management Frontend</h3>
+                                <p class="project-tags">React, Redux, Tailwind CSS</p>
+                                <button class="btn primary small view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <div class="section-divider" aria-hidden="true">
+            <svg viewBox="0 0 1200 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,0 C150,40 350,40 600,28 C850,16 1050,40 1200,24 L1200,56 L0,56 Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <section id="journey" class="section timeline">
+            <div class="container glass-panel">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-number">04</span>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title">Professional Journey</h2>
+                        <p class="section-subtitle">My professional journey.</p>
+                    </div>
+                    <svg class="section-icon">
+                        <use xlink:href="#lucide-trending-up" />
+                    </svg>
+                </div>
+                <div class="timeline-vertical">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="year">2015</div>
+                        <div class="desc">Real Estate Agent — started career in sales & client relations.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="year">2018</div>
+                        <div class="desc">Agriculture Manager — managed teams and operations.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="year">2023</div>
+                        <div class="desc">Full Stack Developer — Django + React projects.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="year">2024</div>
+                        <div class="desc">Content Creator — sharing dev journey and tutorials.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="section-divider" aria-hidden="true">
+            <svg viewBox="0 0 1200 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,0 C150,40 350,40 600,28 C850,16 1050,40 1200,24 L1200,56 L0,56 Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <section id="contact" class="section contact">
+            <div class="container glass-panel">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-number">05</span>
+                    <div class="section-title-wrap">
+                        <h2 class="section-title">Contact Me</h2>
+                        <p class="section-subtitle">Ready to start a project? Let's talk.</p>
+                    </div>
+                    <svg class="section-icon">
+                        <use xlink:href="#lucide-mail" />
+                    </svg>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-card " data-aos="fade-up">
+                        <h3>Let's build something together</h3>
+                        <p>Feel free to reach out for collaborations, freelance or full-time work.</p>
+                        <ul class="contact-info">
+                            <li><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a>
+                            </li>
+                            <li><strong>Location:</strong> Pakistan</li>
+                        </ul>
+                        <ul class="social-links-container">
+                            <li class="social-link-item">
+                                <a href="YOUR_LINKEDIN_URL" target="_blank" aria-label="LinkedIn">
+                                    <span class="social-icon-wrapper">
+                                        <svg>
+                                            <use xlink:href="#lucide-linkedin" />
+                                        </svg>
+                                    </span>
+                                    <span class="social-link-name">LinkedIn</span>
+                                </a>
+                            </li>
+                            <li class="social-link-item">
+                                <a href="YOUR_GITHUB_URL" target="_blank" aria-label="GitHub">
+                                    <span class="social-icon-wrapper">
+                                        <svg>
+                                            <use xlink:href="#lucide-github" />
+                                        </svg>
+                                    </span>
+                                    <span class="social-link-name">GitHub</span>
+                                </a>
+                            </li>
+                            <li class="social-link-item">
+                                <a href="YOUR_YOUTUBE_URL" target="_blank" aria-label="YouTube">
+                                    <span class="social-icon-wrapper">
+                                        <svg>
+                                            <use xlink:href="#lucide-youtube" />
+                                        </svg>
+                                    </span>
+                                    <span class="social-link-name">YouTube</span>
+                                </a>
+                            </li>
+                            <li class="social-link-item">
+                                <a href="YOUR_FACEBOOK_URL" target="_blank" aria-label="Facebook">
+                                    <span class="social-icon-wrapper">
+                                        <svg>
+                                            <use xlink:href="#lucide-facebook" />
+                                        </svg>
+                                    </span>
+                                    <span class="social-link-name">Facebook</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <form id="contactForm" class="contact-form glass-card" data-aos="fade-up" data-aos-delay="80">
+                        <label>
+                            <span>Name</span>
+                            <input type="text" name="from_name" required>
+                        </label>
+                        <label>
+                            <span>Email</span>
+                            <input type="email" name="reply_to" required>
+                        </label>
+                        <label>
+                            <span>Message</span>
+                            <textarea name="message" rows="6" required></textarea>
+                        </label>
+                        <button type="submit" class="btn primary">Send Message</button>
+                        <p id="formStatus" class="form-status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>© 2025 Faisal Iqbal</div>
+        </div>
+    </footer>
+
+
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <button class="modal-close-btn" onclick="closeProjectModal()">X</button>
+            <h2 id="modal-title"></h2>
+            <p class="modal-tags" id="modal-tags"></p>
+            <p id="modal-description"></p>
+            <div class="modal-actions">
+                <a id="modal-live-link" href="#" target="_blank" class="btn primary">
+                    <svg width="18" height="18" class="icon">
+                        <use xlink:href="#lucide-external-link" />
+                    </svg>
+                    Live Demo
+                </a>
+                <a id="modal-github-link" href="#" target="_blank" class="btn ghost">
+                    <svg width="18" height="18" class="icon">
+                        <use xlink:href="#lucide-github" />
+                    </svg>
+                    GitHub Repo
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- SVG Icon Definitions for Lucide Icons (Expanded) -->
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <symbol id="lucide-code" viewBox="0 0 24 24">
+            <path d="M16 18l4-4-4-4" />
+            <path d="M8 6l-4 4 4 4" />
+        </symbol>
+        <symbol id="lucide-server" viewBox="0 0 24 24">
+            <ellipse cx="12" cy="5" rx="9" ry="3" />
+            <path d="M3 5v6c0 1.7 4 3 9 3s9-1.3 9-3V5" />
+        </symbol>
+        <symbol id="lucide-user" viewBox="0 0 24 24">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+        </symbol>
+        <symbol id="lucide-zap" viewBox="0 0 24 24">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+        </symbol>
+        <symbol id="lucide-folder-open" viewBox="0 0 24 24">
+            <path d="M6 15V8a2 2 0 0 1 2-2h4l2 3h4a2 2 0 0 1 2 2v2" />
+            <path d="M2 11h20v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z" />
+        </symbol>
+        <symbol id="lucide-trending-up" viewBox="0 0 24 24">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+            <polyline points="18 7 22 7 22 11" />
+        </symbol>
+        <symbol id="lucide-mail" viewBox="0 0 24 24">
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.83 1.83 0 0 1-2.06 0L2 7" />
+        </symbol>
+        <symbol id="lucide-external-link" viewBox="0 0 24 24">
+            <path d="M15 3h6v6" />
+            <path d="M10 14V3h11v11L10 14z" />
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+        </symbol>
+        <symbol id="lucide-linkedin" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M16 16v-4a2 2 0 0 0-2-2c-1.1 0-2 .9-2 2v4h-3V9h3v1a3.5 3.5 0 0 1 3-1c1.9 0 3 .9 3 3v4z"
+                stroke="currentColor" stroke-width="2" fill="none" />
+            <circle cx="8" cy="8" r="1.5" fill="currentColor" />
+        </symbol>
+
+        <symbol id="lucide-github" viewBox="0 0 24 24">
+            <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1s-1.52.42-5 3.5a13.3 13.3 0 0 0-7 0c-3.48-3.08-5-3.5-5-3.5A5.07 5.07 0 0 0 3 4.77 5.44 5.44 0 0 0 3 12.5c0 4.42 3.3 5.61 6.44 7A3.37 3.37 0 0 0 9 22.13V26"
+                stroke="currentColor" stroke-width="2" fill="none" />
+        </symbol>
+
+        <symbol id="lucide-youtube" viewBox="0 0 24 24">
+            <rect width="18" height="14" x="3" y="5" rx="4" stroke="currentColor" stroke-width="2" fill="none" />
+            <polygon points="10 9 10 15 15 12 10 9" stroke="currentColor" stroke-width="2" fill="none" />
+        </symbol>
+
+        <symbol id="lucide-facebook" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor"
+                stroke-width="2" fill="none" />
+        </symbol>
+
+
+
+    </svg>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.33.3/tsparticles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" defer></script>
+    <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" defer></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js" defer></script>
+
+
+    <script src="js/particles-config.js" defer></script>
+    <script src="js/typed-init.js" defer></script>
+    <script src="js/scrollreveal-init.js" defer></script>
+    <script src="js/emailjs-init.js" defer></script>
+    <script src="js/anime-init.js" defer></script>
+    <script src="js/global.js" defer></script>
+    <script src="js/header.js" defer></script>
+
+    <script>
+        window.addEventListener('load', function () {
+            // Re-initialize AOS with a relevant option for smooth animations
+            if (window.AOS) AOS.init({ duration: 800, once: true, offset: 100 });
+        });
+    </script>
+
+
+</body>
+
+</html>

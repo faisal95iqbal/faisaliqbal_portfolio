@@ -1,0 +1,184 @@
+/* Keyframes for the floating effect on desktop (Slower, smoother, more elegant) */
+@keyframes floatEffect {
+    0% {
+        transform: translate(0px, 0px);
+        /* Start at center position */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        /* Subtle start shadow */
+    }
+
+    25% {
+        transform: translate(20px, 10px);
+        /* Move 4px to the right */
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+        /* Slightly stronger mid shadow */
+    }
+
+    50% {
+        transform: translate(40px, 20px);
+        /* Move 4px to the right */
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+        /* Stronger mid shadow */
+    }
+
+    75% {
+        transform: translate(20px, 10px);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+        /* Move 8px to the right */
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        /* Subtle end shadow */
+    }
+}
+
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 12, 41, 0.15), rgba(48, 43, 99, 0.15));
+    z-index: 1
+}
+
+.hero-content {
+    position: relative;
+    z-index: 12;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+/* Updated Hero Card for larger and floating effect on desktop */
+.hero-card {
+    max-width: 1000px;
+    /* Increased max-width */
+    margin: 80px auto 40px;
+    /* Default padding for mobile */
+    padding: 48px 30px;
+    border-radius: 20px;
+    transition: all 0.4s ease-in-out;
+    /* Smooth transition for hover effects */
+    /* Remove default center text alignment */
+    text-align: center;
+}
+
+
+/* --- Row 1: Image and Info Layout --- */
+.hero-main-row {
+    display: flex;
+    flex-direction: column;
+    /* Stack vertically on mobile */
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    /* Space between main content (Row 1) and CTAs (Row 2) */
+    text-align: center;
+}
+
+.hero-profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Vibrant border and subtle outer shadow */
+    border: 5px solid var(--accent1);
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+
+.greeting {
+    font-weight: 500;
+    color: var(--muted);
+    margin: 0
+}
+
+.name {
+    font-size: 42px;
+    margin: 6px 0 10px;
+    font-family: 'Poppins'
+}
+
+.typed {
+    font-size: 20px;
+    margin: 10px 0;
+    color: var(--text)
+}
+
+.tagline {
+    color: var(--muted);
+    margin: 0
+}
+
+/* --- Row 2: CTA Buttons Layout --- */
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    justify-content: center;
+    /* Centered on mobile */
+}
+
+
+/* ===== DESKTOP STYLES (Floating, Wider, Grid Layout) ===== */
+@media (min-width: 900px) {
+    .hero-card {
+        padding: 60px;
+        /* Increased padding on desktop */
+
+        /* Floating/Elevation effect (Subtler and slower) */
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        /* Changed to horizontal movement (translateX) */
+        animation: floatEffect 8s ease-in-out infinite alternate;
+    }
+
+    .hero-card:hover {
+        /* Stop the float effect and apply the desired elegant hover shadow */
+        animation-play-state: paused;
+        box-shadow: 0 0 60px rgba(157, 78, 221, 0.6);
+        /* User's glow effect */
+        /* Adjusted transform for horizontal movement feedback */
+        transform: scale(1.01) translateX(4px);
+    }
+
+    /* Row 1: Image Left, Info Right */
+    .hero-main-row {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        /* Profile image is 200px wide */
+        align-items: flex-start;
+        text-align: left;
+        /* Align text to the left */
+        gap: 40px;
+    }
+
+    .hero-profile-image {
+        display: block;
+        /* Remove flex on desktop, let grid handle positioning */
+    }
+
+    .hero-profile-image img {
+        width: 200px;
+        height: 200px;
+        border-width: 6px;
+        object-fit: inherit;
+    }
+
+    .hero-info-text {
+        text-align: left;
+        /* Explicitly ensure left alignment */
+    }
+
+    /* Row 2: Align CTAs with the start of the info text column */
+    .hero-actions {
+        justify-content: flex-start;
+        /* Calculate padding-left: 200px (image width) + 40px (gap) = 240px offset */
+        padding-left: 240px;
+    }
+}

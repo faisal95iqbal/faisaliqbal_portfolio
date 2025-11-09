@@ -1,0 +1,46 @@
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: start
+}
+
+.contact-card {
+    padding: 20px
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    background: transparent
+}
+
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--text)
+}
+
+.form-status {
+    margin-top: 8px;
+    color: var(--accent1)
+}
+
+
+@media (max-width:900px) {
+    .contact-grid {
+        grid-template-columns: 1fr
+    }
+}

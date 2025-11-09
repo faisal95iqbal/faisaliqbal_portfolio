@@ -1,0 +1,137 @@
+.timeline-vertical {
+    position: relative;
+    padding: 20px 0;
+    /* Ensures items don't cause horizontal scroll when absolutely positioned */
+    overflow-x: hidden;
+}
+
+/* Timeline Line (Desktop: Centered) */
+.timeline-vertical:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--accent2), var(--accent1));
+    border-radius: 4px;
+    z-index: 1;
+}
+
+/* Timeline Item Base */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    margin: 30px 0;
+    padding: 24px;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Timeline Dot/Marker */
+.timeline-item:after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent1);
+    border: 3px solid var(--bg1);
+    top: 36px;
+    /* Vertical positioning for the dot */
+    z-index: 3;
+    box-shadow: 0 0 0 3px rgba(157, 78, 221, 0.2);
+}
+
+
+/* Desktop - Odd Items (Left Side) */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+    padding-right: 40px;
+    /* Space for the line and dot */
+}
+
+.timeline-item:nth-child(odd):after {
+    right: -7px;
+    /* Position dot on the right edge to meet the center line */
+    left: auto;
+}
+
+/* Desktop - Even Items (Right Side) */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+    padding-left: 40px;
+    /* Space for the line and dot */
+}
+
+.timeline-item:nth-child(even):after {
+    left: -7px;
+    /* Position dot on the left edge to meet the center line */
+}
+
+
+.timeline-item .year {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--accent1);
+}
+
+.timeline-item .company {
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+.timeline-item .desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+
+/* Mobile Responsiveness (max-width: 900px) */
+@media (max-width:900px) {
+
+    /* Move vertical line to the left */
+    .timeline-vertical:before {
+        left: 20px;
+        transform: none;
+    }
+
+    /* Make all items full width, align left */
+    .timeline-item {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        max-width: 95%;
+        /* Adjust width for better margins */
+        margin-left: 10px;
+        padding: 18px;
+        /* Base padding */
+        padding-left: 50px;
+        /* Ensure content clears the line */
+    }
+
+    /* Override specific desktop positioning for all items on mobile */
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+        padding-right: 18px;
+        padding-left: 50px;
+        text-align: left;
+    }
+
+    /* Position the dot marker to align with the left-shifted line */
+    .timeline-item:after {
+        left: 13px;
+        right: auto;
+    }
+}

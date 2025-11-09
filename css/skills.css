@@ -1,0 +1,82 @@
+.skills-grid {
+    /* Changed to 2 columns for desktop */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    /* Increased gap for better separation */
+}
+
+.skill-card {
+    padding: 30px;
+    /* Increased padding for prominence */
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    transition: transform 0.25s;
+    /* Ensure cards are equally spaced vertically */
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+}
+
+.skill-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: var(--accent1);
+    /* Highlight the card heading */
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--glass-border);
+    padding-bottom: 10px;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* Use grid for list items for better flow in wide cards */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px 20px;
+}
+
+.skill-list li {
+    font-size: 1.05rem;
+    font-weight: 400;
+    /* Custom list marker with accent color */
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.4;
+}
+
+.skill-list li::before {
+    content: '‣';
+    /* Use a modern triangle/bullet */
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* Cleanup: Removing old skill bar classes */
+.skill-icon,
+.skill-bar,
+.skill-fill {
+    display: none !important;
+}
+
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        /* Stack cards on mobile */
+    }
+
+    .skill-list {
+        grid-template-columns: 1fr;
+        /* Stack list items on mobile */
+    }
+}
