@@ -523,203 +523,115 @@ video {
     fill: rgba(255, 255, 255, 0.06);
 }
 
-/* Social Links Styling */
+/* Social links — unified, accessible and robust */
 .social-links-container {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
-.social-link-item a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border-radius: 8px;
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    color: var(--text);
-    transition: all 0.3s ease;
-}
-
-.social-icon-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.social-icon-wrapper svg {
-    width: 20px;
-    height: 20px;
-    transition: all 0.3s ease;
-}
-
-.social-link-name {
-    font-size: 0.9rem;
-}
-
-/* Social links hover effects */
-.social-link-item a:hover {
-    transform: translateY(-2px);
-    border-color: currentColor;
-}
-
-/* LinkedIn */
-.social-link-item:nth-child(1) a:hover {
-    color: var(--linkedin-color);
-    background: rgba(10, 102, 194, 0.1);
-}
-
-/* GitHub */
-.social-link-item:nth-child(2) a:hover {
-    color: var(--github-color);
-    background: rgba(24, 23, 23, 0.1);
-}
-
-/* YouTube */
-.social-link-item:nth-child(3) a:hover {
-    color: var(--youtube-color);
-    background: rgba(255, 0, 0, 0.1);
-}
-
-/* Facebook */
-.social-link-item:nth-child(4) a:hover {
-    color: var(--facebook-color);
-    background: rgba(24, 119, 242, 0.1);
-}
-
-
-/* ===== SOCIAL LINKS ICON-TO-NAME STYLING ===== */
-.social-links-container {
-    display: flex;
-    gap: 12px;
-    /* Optional: Center links if they are the primary focus of the container */
-    justify-content: center;
-    align-items: center;
     list-style: none;
     padding: 0;
     margin: 16px 0;
-    /* Default margin for separation */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
 }
 
 .social-link-item {
     line-height: 1;
-    /* Fixes vertical alignment issues */
 }
 
-.social-link-item a {
-    display: flex;
+.social-link {
+    display: inline-flex;
     align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: var(--muted);
     text-decoration: none;
-    padding: 8px;
-    /* Touch target size */
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    /* Transition applied to background, color, and padding/transform */
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: background 0.22s ease, color 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
     overflow: hidden;
 }
 
-/* Base icon state */
 .social-icon-wrapper {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 20px;
-    /* Fixed width for the icon */
     height: 20px;
-    /* Fixed height for the icon */
-    margin-right: 0;
-    /* No margin initially */
-    transition: margin-right 0.3s;
 }
 
-.social-link-name {
-    /* Hide the name by default */
+.social-link svg {
+    width: 20px;
+    height: 20px;
+    /* ensure stroke/fill follow currentColor */
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+.social-link .social-link-name {
     max-width: 0;
     opacity: 0;
     white-space: nowrap;
     font-size: 1rem;
     font-weight: 500;
-    transition: max-width 0.3s, opacity 0.3s;
+    transition: max-width 0.24s ease, opacity 0.18s ease, margin-left 0.18s ease;
 }
 
-/* Hover State: Expand the link, reveal the name */
-.social-link-item a:hover {
+.social-link:hover {
+    transform: translateY(-3px);
     color: var(--text);
-    transform: translateY(-2px);
-    /* Subtle lift */
-    box-shadow: 0 4px 15px rgba(123, 44, 191, 0.3);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
-.social-link-item a:hover .social-icon-wrapper {
-    margin-right: 8px;
-    /* Creates space between icon and text */
-}
-
-.social-link-item a:hover .social-link-name {
-    max-width: 150px;
-    /* Allows the text to become visible */
+.social-link:hover .social-link-name {
+    max-width: 160px;
     opacity: 1;
+    margin-left: 8px;
 }
 
-/* Ensure the SVG icon is colored correctly */
-.social-link-item a svg {
-    fill: currentColor;
-    /* Inherits color from the anchor tag */
-    width: 20px;
-    height: 20px;
-}
-
-/* LinkedIn Hover Style */
+/* Brand-specific hover colors (use data-platform on the anchor) */
 .social-link[data-platform="linkedin"]:hover {
-    background: var(--linkedin-color);
-    border-color: var(--linkedin-color);
+    color: var(--linkedin-color);
+    background: rgba(10, 102, 194, 0.08);
+    border-color: rgba(10, 102, 194, 0.14);
 }
 
-/* GitHub Hover Style */
 .social-link[data-platform="github"]:hover {
-    background: var(--github-color);
-    border-color: var(--github-color);
-    color: #fff;
-    /* Ensure text remains white for contrast */
+    color: var(--github-color);
+    background: rgba(24, 23, 23, 0.09);
+    border-color: rgba(24, 23, 23, 0.16);
 }
 
-/* YouTube Hover Style */
 .social-link[data-platform="youtube"]:hover {
-    background: var(--youtube-color);
-    border-color: var(--youtube-color);
+    color: var(--youtube-color);
+    background: rgba(255, 0, 0, 0.08);
+    border-color: rgba(255, 0, 0, 0.14);
 }
 
-/* Facebook Hover Style */
-.social-link[data-platform="Facebook"]:hover {
-    background: var(--facebook-color);
-    border-color: var(--facebook-color);
+.social-link[data-platform="facebook"]:hover {
+    color: var(--facebook-color);
+    background: rgba(24, 119, 242, 0.08);
+    border-color: rgba(24, 119, 242, 0.14);
 }
 
-/* Mobile Fallback: Stacked or simpler display */
 @media (max-width: 600px) {
-    .social-link-item a {
-        /* On small screens, keep them as icons only for better packing */
-        padding: 10px;
+    .social-link {
+        padding: 8px;
     }
 
-    .social-link-item a .social-link-name {
+    .social-link .social-link-name {
         display: none;
     }
 
-    .social-link-item a .social-icon-wrapper {
-        margin-right: 0;
+    .social-link:hover {
+        transform: none;
     }
+}
 
-    .social-link-item a:hover {
-        /* Simple hover for mobile */
-        transform: scale(1.1);
-    }
+.service-icon {
+    width: 52px;
+    height: 52px;
+    color: var(--accent-color, #7c3aed);
+    margin-bottom: 1.2rem;
 }

@@ -2,12 +2,12 @@
     /* Changed to 2 columns for desktop */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 30px;
     /* Increased gap for better separation */
 }
 
 .skill-card {
-    padding: 30px;
+    padding: 25px;
     /* Increased padding for prominence */
     border-radius: 12px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));

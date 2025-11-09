@@ -44,3 +44,23 @@
         grid-template-columns: 1fr
     }
 }
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    margin-top: 4px;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all 0.25s ease;
+}
+
+input.invalid,
+textarea.invalid {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+}
+
+.error-message.active {
+    opacity: 1;
+    transform: translateY(0);
+}
